@@ -30,3 +30,21 @@ knn.fit(X_train, y_train)
 y_pred = knn.predict(X_test)
 
 print("The accuracy after train test split is:", metrics.accuracy_score(y_test, y_pred))
+
+print("\n\nTESTING ACCURACY OF MODEL FOR VALUES RANGING FROM K = 1 TO K = 25 \n")
+
+k_range = range(1, 25)
+scores = []
+
+for k in k_range:
+    knn = KNeighborsClassifier(n_neighbors=k)
+    knn.fit(X_train, y_train)
+    y_pred = knn.predict(X_test)
+    scores.append(metrics.accuracy_score(y_test, y_pred))
+
+import matplotlib.pyplot as plt
+
+plt.plot(k_range, scores)
+plt.xlabel("Value of k for KNN")
+plt.ylabel("Testing Accuracy")
+plt.show()
