@@ -2,6 +2,7 @@ from sklearn.datasets import load_iris
 from sklearn.linear_model import LogisticRegression
 from sklearn import metrics
 from sklearn.model_selection import train_test_split
+import matplotlib.pyplot as plt 
 
 iris = load_iris()
 
@@ -28,3 +29,8 @@ logreg.fit(X_train, y_train)
 y_pred = logreg.predict(X_test)
 
 print("The accuracy after train test split is:", metrics.accuracy_score(y_test, y_pred))
+
+# plt.plot(y_test, y_pred)
+# plt.xlabel("y_test")
+# plt.ylabel("y_pred")
+# plt.show()

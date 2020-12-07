@@ -2,6 +2,7 @@ from sklearn.datasets import load_iris
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn import metrics
 from sklearn.model_selection import train_test_split
+import matplotlib.pyplot as plt
 
 iris = load_iris()
 
@@ -31,6 +32,11 @@ y_pred = knn.predict(X_test)
 
 print("The accuracy after train test split is:", metrics.accuracy_score(y_test, y_pred))
 
+# plt.plot(y_test, y_pred)
+# plt.xlabel("y_test")
+# plt.ylabel("y_pred")
+# plt.show()
+
 print("\n\nTESTING ACCURACY OF MODEL FOR VALUES RANGING FROM K = 1 TO K = 25 \n")
 
 k_range = range(1, 25)
@@ -42,9 +48,8 @@ for k in k_range:
     y_pred = knn.predict(X_test)
     scores.append(metrics.accuracy_score(y_test, y_pred))
 
-import matplotlib.pyplot as plt
-
 plt.plot(k_range, scores)
 plt.xlabel("Value of k for KNN")
 plt.ylabel("Testing Accuracy")
 plt.show()
+
