@@ -29,4 +29,4 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4,  random
 knn.fit(X_train, y_train)
 y_pred = knn.predict(X_test)
 
-print("Accuracy after train test split is:", metrics.accuracy_score(y_test, y_pred))
+print("Accuracy after train test split is :", metrics.accuracy_score(y_test, y_pred))
